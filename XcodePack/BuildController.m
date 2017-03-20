@@ -16,9 +16,8 @@
 
 @property (unsafe_unretained) IBOutlet NSTextView *textView;
 @property (weak) IBOutlet BDDragView *dragView;
-
-@property (weak) IBOutlet NSButton *addBtn;
 @property (weak) IBOutlet NSButton *runBtn;
+@property (weak) IBOutlet NSProgressIndicator *indicator;
 
 @property (nonatomic, copy) NSString *projectPath;
 
@@ -29,7 +28,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do view setup here.
     __weak typeof(self) weakSelf = self;
     self.dragView.didFinishPath = ^(NSString *path) {
         weakSelf.textView.string = path;
@@ -60,31 +58,25 @@
 - (IBAction)clickRunBtn:(NSButton *)sender {
     self.dragView.hidden = YES;
     self.textView.string = @"";
-    if ([self.projectPath hasSuffix:@"xcworkspace"]) {
-        NSString *project = self.projectPath.lastPathComponent;
-        NSString *path = self.projectPath.stringByDeletingLastPathComponent;
-        
-        dispatch_async(dispatch_get_global_queue(0, 0), ^{
-            AutoPack *pack = [[AutoPack alloc] init:path project:project];
-            pack.runningLog = ^(NSString *log) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    NSString *outputString = [NSString stringWithFormat:@"%@ \n %@", self.textView.string,log];
-                    self.textView.string = outputString;
-                    NSRange range = NSMakeRange(outputString.length, 0);
-                    [self.textView scrollRangeToVisible:range];
-                });
-                
-            };
-            [pack build];
-        });
-        
-        
-        
-    } else if ([self.projectPath hasSuffix:@"xcodeproj"]) {
-        
-    } else {
-        
-    }
+    sender.enabled = NO;
+    self.indicator.hidden = NO;
+    [self.indicator startAnimation:nil];
+    NSString *project = self.projectPath.lastPathComponent;
+    NSString *path = self.projectPath.stringByDeletingLastPathComponent;
+    
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        AutoPack *pack = [[AutoPack alloc] init:path project:project];
+        pack.runningLog = ^(NSString *log) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                NSString *outputString = [NSString stringWithFormat:@"%@ \n %@", self.textView.string,log];
+                self.textView.string = outputString;
+                NSRange range = NSMakeRange(outputString.length, 0);
+                [self.textView scrollRangeToVisible:range];
+            });
+            
+        };
+        [pack build];
+    });
 }
 
 - (NSArray *)fileTypes {

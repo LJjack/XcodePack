@@ -72,8 +72,6 @@
 				835060551E4DA4C800880DBD /* BDDragView.m */,
 				835060561E4DA4C800880DBD /* BuildController.h */,
 				835060571E4DA4C800880DBD /* BuildController.m */,
-				835060581E4DA4C800880DBD /* exportOptions.plist */,
-				835060591E4DA4C800880DBD /* Info.plist */,
 				835060641E4DA4D100880DBD /* Main.storyboard */,
 				835060661E4DA58A00880DBD /* Assets.xcassets */,
 				8350605B1E4DA4C800880DBD /* TerminalCmd.swift */,
@@ -87,6 +85,8 @@
 		835060271E4DA3F100880DBD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				835060581E4DA4C800880DBD /* exportOptions.plist */,
+				835060591E4DA4C800880DBD /* Info.plist */,
 				835060281E4DA3F100880DBD /* main.m */,
 			);
 			name = "Supporting Files";
@@ -316,6 +316,7 @@
 				835060371E4DA3F100880DBD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

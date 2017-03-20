@@ -91,9 +91,20 @@
 {
     if ([sender draggingSource] != self) {
         NSArray* filePaths = [[sender draggingPasteboard] propertyListForType:NSFilenamesPboardType];
+        
+        NSString *fileName = filePaths.firstObject;
+        if (![fileName hasSuffix:@".xcodeproj"] && ![fileName hasSuffix:@".xcworkspace"]) {
+            NSAlert *alert = [[NSAlert alloc] init];
+            alert.messageText = @"警告";
+            alert.informativeText = @"文件不是.xcodeproj或.xcworkspace";
+            [alert beginSheetModalForWindow:[NSApplication sharedApplication].keyWindow completionHandler:^(NSModalResponse returnCode) {
+                
+            }];
+            return YES;
+        }
         self.hidden = YES;
         if (self.didFinishPath) {
-            self.didFinishPath(filePaths.firstObject);
+            self.didFinishPath(fileName);
         }
     }
     

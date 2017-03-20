@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
@@ -686,39 +686,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="oY7-gB-AmW">
-                                <rect key="frame" x="12" y="4" width="30" height="26"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="23" id="BbH-xp-DQi"/>
-                                    <constraint firstAttribute="width" constant="30" id="vtG-ZZ-5Ub"/>
-                                </constraints>
-                                <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="NSAddTemplate" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="evu-v5-Gaa">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="clickAddBtn:" target="XfG-lQ-9wD" id="aMf-nj-dBA"/>
-                                </connections>
-                            </button>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZtM-e2-iop">
-                                <rect key="frame" x="48" y="9" width="150" height="17"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="拖放工程文件到上方区域" id="r4S-dw-ggT">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" white="0.25" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
                             <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Gh-Ol-RfF">
-                                <rect key="frame" x="0.0" y="34" width="480" height="236"/>
+                                <rect key="frame" x="0.0" y="40" width="480" height="230"/>
                                 <clipView key="contentView" id="yEJ-DX-d8w">
-                                    <rect key="frame" x="1" y="1" width="463" height="234"/>
+                                    <rect key="frame" x="1" y="1" width="463" height="228"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textView editable="NO" importsGraphics="NO" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="Cu0-HA-UAE">
-                                            <rect key="frame" x="0.0" y="0.0" width="463" height="234"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="463" height="228"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <size key="minSize" width="463" height="234"/>
+                                            <size key="minSize" width="463" height="228"/>
                                             <size key="maxSize" width="480" height="10000000"/>
                                             <attributedString key="textStorage">
                                                 <fragment content="把工程托在上方区域">
@@ -738,50 +716,87 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="KFn-72-rFE">
-                                    <rect key="frame" x="464" y="1" width="15" height="234"/>
+                                    <rect key="frame" x="464" y="1" width="15" height="228"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ffe-vD-COd">
-                                <rect key="frame" x="388" y="7" width="80" height="19"/>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="J4L-sy-r5N">
+                                <rect key="frame" x="0.0" y="0.0" width="480" height="40"/>
+                                <subviews>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="N63-Hc-GBz">
+                                        <rect key="frame" x="12" y="7" width="21" height="25"/>
+                                        <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="NSAddTemplate" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="XWC-u8-IKF">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="clickAddBtn:" target="XfG-lQ-9wD" id="vVR-w7-JSj"/>
+                                        </connections>
+                                    </button>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rh9-9Z-OWO">
+                                        <rect key="frame" x="39" y="12" width="150" height="17"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="拖放工程文件到上方区域" id="pR0-tk-yIR">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" white="0.25" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="l2b-es-8Ka">
+                                        <rect key="frame" x="404" y="10" width="64" height="19"/>
+                                        <buttonCell key="cell" type="roundRect" title="开始打包" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" inset="2" id="4hi-yN-PY9">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="cellTitle"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="clickRunBtn:" target="XfG-lQ-9wD" id="so5-Wt-BkH"/>
+                                        </connections>
+                                    </button>
+                                    <progressIndicator hidden="YES" wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="7Uq-pU-pb0">
+                                        <rect key="frame" x="380" y="12" width="16" height="16"/>
+                                    </progressIndicator>
+                                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jAd-oq-xHt">
+                                        <rect key="frame" x="210" y="9" width="129" height="18"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="check" title="是否上传到蒲公英" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="qcQ-Qn-JSd">
+                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                    </button>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="U70-8Q-iLg"/>
+                                    <constraint firstItem="l2b-es-8Ka" firstAttribute="leading" secondItem="7Uq-pU-pb0" secondAttribute="trailing" constant="8" id="3qd-i2-Kz6"/>
+                                    <constraint firstItem="Rh9-9Z-OWO" firstAttribute="centerY" secondItem="J4L-sy-r5N" secondAttribute="centerY" id="58X-C1-wZs"/>
+                                    <constraint firstItem="N63-Hc-GBz" firstAttribute="leading" secondItem="J4L-sy-r5N" secondAttribute="leading" constant="12" id="5ZT-Cu-KjO"/>
+                                    <constraint firstAttribute="height" constant="40" id="Fhs-ag-fFC"/>
+                                    <constraint firstItem="l2b-es-8Ka" firstAttribute="centerY" secondItem="J4L-sy-r5N" secondAttribute="centerY" id="GXd-N5-mkE"/>
+                                    <constraint firstAttribute="trailing" secondItem="l2b-es-8Ka" secondAttribute="trailing" constant="12" id="VKO-Qv-nfg"/>
+                                    <constraint firstItem="Rh9-9Z-OWO" firstAttribute="leading" secondItem="N63-Hc-GBz" secondAttribute="trailing" constant="8" id="qGf-7i-M2N"/>
+                                    <constraint firstItem="N63-Hc-GBz" firstAttribute="centerY" secondItem="J4L-sy-r5N" secondAttribute="centerY" id="tb3-1i-ZJk"/>
+                                    <constraint firstItem="7Uq-pU-pb0" firstAttribute="centerY" secondItem="J4L-sy-r5N" secondAttribute="centerY" id="ufs-JL-AvO"/>
                                 </constraints>
-                                <buttonCell key="cell" type="roundRect" title="开始打包" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Fka-f1-MnM">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="cellTitle"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="clickRunBtn:" target="XfG-lQ-9wD" id="Rdv-f1-3tW"/>
-                                </connections>
-                            </button>
+                            </customView>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="Qw1-wi-xcT" customClass="BDDragView">
-                                <rect key="frame" x="0.0" y="34" width="480" height="236"/>
+                                <rect key="frame" x="0.0" y="40" width="480" height="230"/>
                             </customView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="1Gh-Ol-RfF" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="3a2-Y9-V4V"/>
-                            <constraint firstItem="1Gh-Ol-RfF" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="3gU-6w-8V4"/>
-                            <constraint firstAttribute="bottom" secondItem="ffe-vD-COd" secondAttribute="bottom" constant="8" id="CFF-gQ-chk"/>
-                            <constraint firstAttribute="trailing" secondItem="Qw1-wi-xcT" secondAttribute="trailing" id="GL4-zu-I9W"/>
-                            <constraint firstAttribute="bottom" secondItem="oY7-gB-AmW" secondAttribute="bottom" constant="6" id="JhA-jn-KOo"/>
-                            <constraint firstItem="Qw1-wi-xcT" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="UWR-6a-ZJf"/>
-                            <constraint firstAttribute="bottom" secondItem="1Gh-Ol-RfF" secondAttribute="bottom" constant="34" id="XFB-OF-PAH"/>
-                            <constraint firstAttribute="bottom" secondItem="Qw1-wi-xcT" secondAttribute="bottom" constant="34" id="aVV-Dp-SRy"/>
-                            <constraint firstItem="ffe-vD-COd" firstAttribute="top" secondItem="1Gh-Ol-RfF" secondAttribute="bottom" constant="8" id="ckY-Hx-VyR"/>
-                            <constraint firstItem="Qw1-wi-xcT" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="g5B-H4-Ukx"/>
-                            <constraint firstAttribute="trailing" secondItem="ffe-vD-COd" secondAttribute="trailing" constant="12" id="g7T-qS-slG"/>
-                            <constraint firstAttribute="trailing" secondItem="1Gh-Ol-RfF" secondAttribute="trailing" id="naf-32-68C"/>
-                            <constraint firstItem="ZtM-e2-iop" firstAttribute="leading" secondItem="oY7-gB-AmW" secondAttribute="trailing" constant="8" id="nv4-tR-h5f"/>
-                            <constraint firstItem="oY7-gB-AmW" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="12" id="uaV-QM-OhW"/>
-                            <constraint firstItem="oY7-gB-AmW" firstAttribute="top" secondItem="1Gh-Ol-RfF" secondAttribute="bottom" constant="5" id="upE-Uv-WUw"/>
-                            <constraint firstItem="ZtM-e2-iop" firstAttribute="top" secondItem="1Gh-Ol-RfF" secondAttribute="bottom" constant="8" id="vgu-45-kPG"/>
+                            <constraint firstAttribute="trailing" secondItem="1Gh-Ol-RfF" secondAttribute="trailing" id="I6W-Fk-0KG"/>
+                            <constraint firstItem="1Gh-Ol-RfF" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="Mwy-mH-RuK"/>
+                            <constraint firstItem="J4L-sy-r5N" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="Su9-Ka-Rlu"/>
+                            <constraint firstItem="1Gh-Ol-RfF" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="T80-Sx-rKO"/>
+                            <constraint firstItem="Qw1-wi-xcT" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="V73-tg-JOR"/>
+                            <constraint firstItem="J4L-sy-r5N" firstAttribute="top" secondItem="Qw1-wi-xcT" secondAttribute="bottom" id="Vws-zI-h2v"/>
+                            <constraint firstAttribute="trailing" secondItem="Qw1-wi-xcT" secondAttribute="trailing" id="j5x-D4-Kdc"/>
+                            <constraint firstAttribute="bottom" secondItem="J4L-sy-r5N" secondAttribute="bottom" id="ooW-1q-nzh"/>
+                            <constraint firstItem="Qw1-wi-xcT" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="sde-tA-NEF"/>
+                            <constraint firstItem="J4L-sy-r5N" firstAttribute="top" secondItem="1Gh-Ol-RfF" secondAttribute="bottom" id="ur9-G4-VTf"/>
+                            <constraint firstAttribute="trailing" secondItem="J4L-sy-r5N" secondAttribute="trailing" id="wxu-IR-Nis"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="addBtn" destination="oY7-gB-AmW" id="SC6-zf-VJz"/>
                         <outlet property="dragView" destination="Qw1-wi-xcT" id="hrt-81-kbG"/>
-                        <outlet property="runBtn" destination="ffe-vD-COd" id="cEc-2D-IDo"/>
+                        <outlet property="indicator" destination="7Uq-pU-pb0" id="zCI-4Y-eJs"/>
+                        <outlet property="runBtn" destination="l2b-es-8Ka" id="LEV-FU-vhl"/>
                         <outlet property="textView" destination="Cu0-HA-UAE" id="bfc-Y2-Gim"/>
                     </connections>
                 </viewController>
