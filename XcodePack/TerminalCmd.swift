@@ -11,12 +11,12 @@ import Cocoa
 //终端命令
 struct TerminalCmd {
     @discardableResult
-    func tCmd(cmd:String , block:@escaping (String) -> Void) -> Int32 {
+    func tCmd(cmd:String , block:((String) -> Void)? = nil) -> Int32 {
         return tCmd(cmd: cmd, launchPath: "/bin/bash", block:block)
     }
     
     @discardableResult
-    func tCmd(cmd:String, launchPath:String, block:@escaping (String) -> Void) -> Int32 {
+    func tCmd(cmd:String, launchPath:String, block:((String) -> Void)? = nil) -> Int32 {
         // 初始化并设置shell路径
         let task = Process()
         task.qualityOfService = .default
@@ -35,7 +35,9 @@ struct TerminalCmd {
                 return
             }
             //生成日志
-            block(srt)
+            if let b = block {
+                b(srt)
+            }
         }
         task.launch()
         task.waitUntilExit()

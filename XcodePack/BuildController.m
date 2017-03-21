@@ -19,6 +19,9 @@
 @property (weak) IBOutlet NSButton *runBtn;
 @property (weak) IBOutlet NSProgressIndicator *indicator;
 
+@property (weak) IBOutlet NSButton *uploadPgyBtn;
+
+
 @property (nonatomic, copy) NSString *projectPath;
 
 @end
@@ -45,7 +48,7 @@
     [oPanel setAllowsMultipleSelection:NO];
     [oPanel setCanChooseDirectories:YES];
     [oPanel setResolvesAliases:YES];
-    [oPanel setAllowedFileTypes:[self fileTypes]];
+    [oPanel setAllowedFileTypes:@[@"xcodeproj",@"xcworkspace"]];
     
     [oPanel beginSheetModalForWindow:[self.view window]
                    completionHandler:^(NSInteger returnCode) {
@@ -75,11 +78,13 @@
             });
             
         };
+        pack.didFinish = ^(int32_t stauts) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.indicator stopAnimation:nil];
+            });
+        };
         [pack build];
     });
 }
 
-- (NSArray *)fileTypes {
-    return @[@"xcodeproj",@"xcworkspace"];
-}
 @end

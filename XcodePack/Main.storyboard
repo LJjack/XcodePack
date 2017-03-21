@@ -754,9 +754,8 @@
                                     <progressIndicator hidden="YES" wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="7Uq-pU-pb0">
                                         <rect key="frame" x="380" y="12" width="16" height="16"/>
                                     </progressIndicator>
-                                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jAd-oq-xHt">
-                                        <rect key="frame" x="210" y="9" width="129" height="18"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <button translatesAutoresizingMaskIntoConstraints="NO" id="jAd-oq-xHt">
+                                        <rect key="frame" x="197" y="11" width="129" height="18"/>
                                         <buttonCell key="cell" type="check" title="是否上传到蒲公英" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="qcQ-Qn-JSd">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -769,7 +768,9 @@
                                     <constraint firstItem="N63-Hc-GBz" firstAttribute="leading" secondItem="J4L-sy-r5N" secondAttribute="leading" constant="12" id="5ZT-Cu-KjO"/>
                                     <constraint firstAttribute="height" constant="40" id="Fhs-ag-fFC"/>
                                     <constraint firstItem="l2b-es-8Ka" firstAttribute="centerY" secondItem="J4L-sy-r5N" secondAttribute="centerY" id="GXd-N5-mkE"/>
+                                    <constraint firstItem="jAd-oq-xHt" firstAttribute="leading" secondItem="Rh9-9Z-OWO" secondAttribute="trailing" constant="12" id="JKt-0N-D9N"/>
                                     <constraint firstAttribute="trailing" secondItem="l2b-es-8Ka" secondAttribute="trailing" constant="12" id="VKO-Qv-nfg"/>
+                                    <constraint firstItem="jAd-oq-xHt" firstAttribute="centerY" secondItem="J4L-sy-r5N" secondAttribute="centerY" id="W1H-4I-RN2"/>
                                     <constraint firstItem="Rh9-9Z-OWO" firstAttribute="leading" secondItem="N63-Hc-GBz" secondAttribute="trailing" constant="8" id="qGf-7i-M2N"/>
                                     <constraint firstItem="N63-Hc-GBz" firstAttribute="centerY" secondItem="J4L-sy-r5N" secondAttribute="centerY" id="tb3-1i-ZJk"/>
                                     <constraint firstItem="7Uq-pU-pb0" firstAttribute="centerY" secondItem="J4L-sy-r5N" secondAttribute="centerY" id="ufs-JL-AvO"/>
@@ -798,6 +799,7 @@
                         <outlet property="indicator" destination="7Uq-pU-pb0" id="zCI-4Y-eJs"/>
                         <outlet property="runBtn" destination="l2b-es-8Ka" id="LEV-FU-vhl"/>
                         <outlet property="textView" destination="Cu0-HA-UAE" id="bfc-Y2-Gim"/>
+                        <outlet property="uploadPgyBtn" destination="jAd-oq-xHt" id="bNM-uH-2pW"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
