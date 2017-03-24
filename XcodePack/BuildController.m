@@ -39,9 +39,8 @@
 
 - (void)setRepresentedObject:(id)representedObject {
     [super setRepresentedObject:representedObject];
-    
-    // Update the view, if already loaded.
 }
+
 - (IBAction)clickAddBtn:(NSButton *)sender {
     NSOpenPanel *oPanel = [NSOpenPanel openPanel];
     [oPanel setAllowsMultipleSelection:NO];
@@ -104,8 +103,6 @@
     NSMutableURLRequest *request = [serializer multipartFormRequestWithMethod:@"POST" URLString:urlString parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         [formData appendPartWithFileURL:[NSURL fileURLWithPath:path] name:@"file" fileName:fileName mimeType:@"form-data" error:nil];
     } error:nil];
-    
-    
     
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] init];
     

@@ -22,6 +22,7 @@
 		83717B2B1E8123C300624074 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 83717B231E8123C300624074 /* AFURLRequestSerialization.m */; };
 		83717B2C1E8123C300624074 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 83717B251E8123C300624074 /* AFURLResponseSerialization.m */; };
 		83717B2D1E8123C300624074 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 83717B271E8123C300624074 /* AFURLSessionManager.m */; };
+		8386221D1E8527BF00393990 /* PgySettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8386221C1E8527BF00393990 /* PgySettingsController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,8 @@
 		83717B251E8123C300624074 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		83717B261E8123C300624074 /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		83717B271E8123C300624074 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
+		8386221B1E8527BF00393990 /* PgySettingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PgySettingsController.h; sourceTree = "<group>"; };
+		8386221C1E8527BF00393990 /* PgySettingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PgySettingsController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +95,8 @@
 				835060551E4DA4C800880DBD /* BDDragView.m */,
 				835060561E4DA4C800880DBD /* BuildController.h */,
 				835060571E4DA4C800880DBD /* BuildController.m */,
+				8386221B1E8527BF00393990 /* PgySettingsController.h */,
+				8386221C1E8527BF00393990 /* PgySettingsController.m */,
 				835060641E4DA4D100880DBD /* Main.storyboard */,
 				835060661E4DA58A00880DBD /* Assets.xcassets */,
 				8350605B1E4DA4C800880DBD /* TerminalCmd.swift */,
@@ -214,6 +219,7 @@
 				835060291E4DA3F100880DBD /* main.m in Sources */,
 				83717B281E8123C300624074 /* AFHTTPSessionManager.m in Sources */,
 				83717B2B1E8123C300624074 /* AFURLRequestSerialization.m in Sources */,
+				8386221D1E8527BF00393990 /* PgySettingsController.m in Sources */,
 				83717B2D1E8123C300624074 /* AFURLSessionManager.m in Sources */,
 				83717B291E8123C300624074 /* AFNetworkReachabilityManager.m in Sources */,
 				835060261E4DA3F100880DBD /* AppDelegate.m in Sources */,
