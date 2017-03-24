@@ -11,7 +11,7 @@ import Cocoa
 fileprivate let kExportOptionsPlist =  Bundle.main.path(forResource: "exportOptions", ofType: "plist")
 //configuration for iOS build setting
 fileprivate let kConfiguration = "Release"
-fileprivate let kExportMainDirectory = "~/Desktop/" //会在桌面创建输出ipa文件的目录
+fileprivate let kOutputPath = "Desktop" //会在桌面创建输出ipa文件的目录
 
 class AutoPack : NSObject {
     
@@ -26,7 +26,7 @@ class AutoPack : NSObject {
     private let project:String
     
     public var runningLog: ((String) -> Void)?
-    public var didFinish: ((Int32) -> Void)?
+    public var didFinish: ((Int32, String) -> Void)?
     
     init(_ filePath:String, project:String) {
         self.filePath = filePath
@@ -42,9 +42,6 @@ class AutoPack : NSObject {
         let archivePath = buildArchivePath(filePath: filePath, name: projectName)
         var cmdCode = "cd " + filePath + "; "
         cmdCode += "xcodebuild -\(typeName) \(project) -scheme \(projectName) -configuration \(kConfiguration) archive -archivePath \(archivePath) -destination generic/platform=iOS; "
-        
-        
-        
         debugPrint("命令代码：" + cmdCode)
         let status = self.cmd.tCmd(cmd:cmdCode) { log in
             if let r = self.runningLog {
@@ -55,10 +52,10 @@ class AutoPack : NSObject {
         }
         if status != 0 {
             if let finish = self.didFinish {
-                finish( status)
+                finish(status, "")
             }
         } else {
-            let exportDirectory = self.buildExportDirectory(projectName)
+            let exportDirectory = self.ipaOutputPath(filePath, projectName: projectName)
             let cmdCodeIpa = "xcodebuild -exportArchive -archivePath \(archivePath) -exportPath \(exportDirectory) -exportOptionsPlist \(kExportOptionsPlist!); "
             debugPrint("命令代码：" + cmdCodeIpa)
             let status1 = self.cmd.tCmd(cmd:cmdCodeIpa) { log in
@@ -67,12 +64,12 @@ class AutoPack : NSObject {
                 }
             }
             if let finish = self.didFinish {
-                finish( status1)
+                let ipaPath = exportDirectory + "/" + projectName + ".ipa"
+                finish(status1,ipaPath)
             }
         }
         cmd.tCmd(cmd: "rm -r \(archivePath);")
     }
-    
 }
 
 extension AutoPack {
@@ -93,13 +90,15 @@ extension AutoPack {
         return typeName
     }
     
-    //创建输出IPA文件路径: ~/Desktop/{scheme}{2016-12-28_08-08-10}
-    fileprivate func buildExportDirectory(_ scheme:String) -> String {
+    //创建输出IPA文件路径: ~/Desktop/{projectName}{2016-12-28_08-08-10}
+    fileprivate func ipaOutputPath(_ filePath:String, projectName:String) -> String {
         let date = Date()
         let format = DateFormatter()
-        format.dateFormat = "yyyy-MM-dd_HH:mm:ss"
+        format.dateFormat = "yyyy-MM-dd_HH-mm-ss"
         let dataString = format.string(from: date)
-        return kExportMainDirectory + scheme + dataString
+        return filePath.components(separatedBy: "/")[1...2].reduce("/") { (res, node) -> String in
+            return res +  node + "/"
+        } + kOutputPath + "/" + projectName + dataString
     }
     
     fileprivate func buildArchivePath(filePath:String,name:String) -> String {
