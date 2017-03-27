@@ -8,8 +8,8 @@
 
 #import "BuildController.h"
 #import "PgySettingsController.h"
+#import "PgyUploadController.h"
 #import "XcodePack-Swift.h"
-#import "AFNetworking.h"
 #import "BDDragView.h"
 #import "PgyConfig.h"
 
@@ -24,7 +24,6 @@
 @property (nonatomic, copy) NSString *projectPath;
 
 @end
-
 
 @implementation BuildController
 
@@ -48,7 +47,6 @@
         [self performSegueWithIdentifier:@"showPgySettings" sender:nil];
     }
 }
-
 
 - (IBAction)clickAddBtn:(NSButton *)sender {
     NSOpenPanel *oPanel = [NSOpenPanel openPanel];
@@ -89,8 +87,10 @@
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.indicator stopAnimation:nil];
                 self.uploadPgyBtn.enabled = YES;
-                if (stauts == 0 && self.uploadPgyBtn.state) {
-                    [self uploadPgy:path];
+                if (stauts != 0) {
+#warning TODO
+                } else if (stauts == 0 && self.uploadPgyBtn.state) {
+                    [self performSegueWithIdentifier:@"showUpload" sender:path];
                 }
             });
         };
@@ -102,35 +102,6 @@
 
 - (void)pgySttingsControllerDidClosed:(PgySettingsController *)controller {
     [self handleUploadPgyBtnState];
-}
-
-- (void)uploadPgy:(NSString *)path {
-    NSString *fileName = [path componentsSeparatedByString:@"/"].lastObject;
-    NSString *urlString = @"https://qiniu-storage.pgyer.com/apiv1/app/upload";
-    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    parameters[@"uKey"] = [defaults objectForKey:kUserKey]?:@"";
-    parameters[@"_api_key"] = [defaults objectForKey:kApiKey]?:@"";
-    NSString *pwd = [defaults objectForKey:kPwdKey];
-    if (pwd.length) {
-        parameters[@"password"] = pwd;
-        parameters[@"installType"] = @"2";
-    }
-    parameters[@"updateDescription"] = [defaults objectForKey:kDestKey]?:@"";
-    
-    AFHTTPRequestSerializer *serializer = [AFHTTPRequestSerializer serializer];
-    NSMutableURLRequest *request = [serializer multipartFormRequestWithMethod:@"POST" URLString:urlString parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
-        [formData appendPartWithFileURL:[NSURL fileURLWithPath:path] name:@"file" fileName:fileName mimeType:@"form-data" error:nil];
-    } error:nil];
-    
-    AFURLSessionManager *manager = [[AFURLSessionManager alloc] init];
-    
-    NSURLSessionUploadTask * uploadTask = [manager uploadTaskWithStreamedRequest:request progress:^(NSProgress * _Nonnull uploadProgress) {
-        NSLog(@"%f",uploadProgress.fractionCompleted);
-    } completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
-        NSLog(@"%@  %@", responseObject, error);
-    }];
-    [uploadTask resume];
 }
 
 - (void)handleUploadPgyBtnState {
@@ -145,6 +116,9 @@
     if ([segue.identifier isEqualToString:@"showPgySettings"]) {
         PgySettingsController * controller = [segue destinationController];
         controller.delegate = self;
+    } else if ([segue.identifier isEqualToString:@"showUpload"]) {
+        PgyUploadController *controller = [segue destinationController];
+        controller.path = sender;
     }
 }
 

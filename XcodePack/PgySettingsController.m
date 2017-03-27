@@ -51,6 +51,11 @@
     [defauts setObject:self.pwdField.stringValue forKey:kPwdKey];
     [defauts setObject:self.destTextView.string forKey:kDestKey];
     [defauts synchronize];
+    
+    if ([self.delegate respondsToSelector:@selector(pgySttingsControllerDidClosed:)]) {
+        [self.delegate pgySttingsControllerDidClosed:self];
+    }
+    [self dismissController:nil];
 }
 
 @end

@@ -44,11 +44,7 @@ class AutoPack : NSObject {
         cmdCode += "xcodebuild -\(typeName) \(project) -scheme \(projectName) -configuration \(kConfiguration) archive -archivePath \(archivePath) -destination generic/platform=iOS; "
         debugPrint("命令代码：" + cmdCode)
         let status = self.cmd.tCmd(cmd:cmdCode) { log in
-            if let r = self.runningLog {
-                DispatchQueue.main.async {
-                     r(log)
-                }
-            }
+            if let r = self.runningLog { r(log) }
         }
         if status != 0 {
             if let finish = self.didFinish {
@@ -59,9 +55,7 @@ class AutoPack : NSObject {
             let cmdCodeIpa = "xcodebuild -exportArchive -archivePath \(archivePath) -exportPath \(exportDirectory) -exportOptionsPlist \(kExportOptionsPlist!); "
             debugPrint("命令代码：" + cmdCodeIpa)
             let status1 = self.cmd.tCmd(cmd:cmdCodeIpa) { log in
-                if let r = self.runningLog {
-                    r(log)
-                }
+                if let r = self.runningLog { r(log) }
             }
             if let finish = self.didFinish {
                 let ipaPath = exportDirectory + "/" + projectName + ".ipa"

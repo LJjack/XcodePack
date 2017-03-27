@@ -24,6 +24,8 @@
 		83717B2D1E8123C300624074 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 83717B271E8123C300624074 /* AFURLSessionManager.m */; };
 		8386221D1E8527BF00393990 /* PgySettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8386221C1E8527BF00393990 /* PgySettingsController.m */; };
 		83D9A6491E889EBB00DAF05C /* PgyConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D9A6481E889EBB00DAF05C /* PgyConfig.m */; };
+		83D9A64F1E88AA9D00DAF05C /* NSImage+LJQRCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D9A64E1E88AA9D00DAF05C /* NSImage+LJQRCode.m */; };
+		83D9A6521E88AF4E00DAF05C /* PgyUploadController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D9A6511E88AF4E00DAF05C /* PgyUploadController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +61,10 @@
 		8386221C1E8527BF00393990 /* PgySettingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PgySettingsController.m; sourceTree = "<group>"; };
 		83D9A6471E889EBB00DAF05C /* PgyConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PgyConfig.h; sourceTree = "<group>"; };
 		83D9A6481E889EBB00DAF05C /* PgyConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PgyConfig.m; sourceTree = "<group>"; };
+		83D9A64D1E88AA9D00DAF05C /* NSImage+LJQRCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSImage+LJQRCode.h"; sourceTree = "<group>"; };
+		83D9A64E1E88AA9D00DAF05C /* NSImage+LJQRCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSImage+LJQRCode.m"; sourceTree = "<group>"; };
+		83D9A6501E88AF4E00DAF05C /* PgyUploadController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PgyUploadController.h; sourceTree = "<group>"; };
+		83D9A6511E88AF4E00DAF05C /* PgyUploadController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PgyUploadController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,8 +106,12 @@
 				835060571E4DA4C800880DBD /* BuildController.m */,
 				8386221B1E8527BF00393990 /* PgySettingsController.h */,
 				8386221C1E8527BF00393990 /* PgySettingsController.m */,
+				83D9A6501E88AF4E00DAF05C /* PgyUploadController.h */,
+				83D9A6511E88AF4E00DAF05C /* PgyUploadController.m */,
 				83D9A6471E889EBB00DAF05C /* PgyConfig.h */,
 				83D9A6481E889EBB00DAF05C /* PgyConfig.m */,
+				83D9A64D1E88AA9D00DAF05C /* NSImage+LJQRCode.h */,
+				83D9A64E1E88AA9D00DAF05C /* NSImage+LJQRCode.m */,
 				835060641E4DA4D100880DBD /* Main.storyboard */,
 				835060661E4DA58A00880DBD /* Assets.xcassets */,
 				8350605B1E4DA4C800880DBD /* TerminalCmd.swift */,
@@ -215,8 +225,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83D9A64F1E88AA9D00DAF05C /* NSImage+LJQRCode.m in Sources */,
 				8350605E1E4DA4C800880DBD /* BuildController.m in Sources */,
 				83717B2A1E8123C300624074 /* AFSecurityPolicy.m in Sources */,
+				83D9A6521E88AF4E00DAF05C /* PgyUploadController.m in Sources */,
 				835060621E4DA4C800880DBD /* TerminalCmd.swift in Sources */,
 				835060631E4DA4C800880DBD /* Utils.swift in Sources */,
 				83717B2C1E8123C300624074 /* AFURLResponseSerialization.m in Sources */,

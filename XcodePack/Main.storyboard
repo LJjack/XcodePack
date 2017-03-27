@@ -804,11 +804,60 @@
                         <outlet property="textView" destination="Cu0-HA-UAE" id="bfc-Y2-Gim"/>
                         <outlet property="uploadPgyBtn" destination="jAd-oq-xHt" id="bNM-uH-2pW"/>
                         <segue destination="9zK-v9-x8T" kind="sheet" identifier="showPgySettings" id="N8t-n1-BtC"/>
+                        <segue destination="5mq-gm-Op3" kind="sheet" identifier="showUpload" id="oOb-gS-uF1"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="75" y="655"/>
+        </scene>
+        <!--Pgy Upload Controller-->
+        <scene sceneID="HeY-hl-vjz">
+            <objects>
+                <viewController id="5mq-gm-Op3" customClass="PgyUploadController" sceneMemberID="viewController">
+                    <view key="view" id="z4S-HJ-nHG">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <progressIndicator wantsLayer="YES" maxValue="100" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="rad-4E-8rf">
+                                <rect key="frame" x="20" y="231" width="440" height="20"/>
+                            </progressIndicator>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6kH-ca-pQQ">
+                                <rect key="frame" x="165" y="60" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="dVc-r8-MqU"/>
+                                    <constraint firstAttribute="height" constant="150" id="iuO-xY-XFE"/>
+                                </constraints>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="cuK-Qf-fhB"/>
+                            </imageView>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VZd-vg-JwV">
+                                <rect key="frame" x="238" y="31" width="4" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" id="SuA-sZ-yUj">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="VZd-vg-JwV" firstAttribute="top" secondItem="6kH-ca-pQQ" secondAttribute="bottom" constant="12" id="1f7-YB-To3"/>
+                            <constraint firstItem="rad-4E-8rf" firstAttribute="leading" secondItem="z4S-HJ-nHG" secondAttribute="leading" constant="20" id="Mq2-U6-sk5"/>
+                            <constraint firstItem="VZd-vg-JwV" firstAttribute="centerX" secondItem="z4S-HJ-nHG" secondAttribute="centerX" id="Yg3-dq-uus"/>
+                            <constraint firstItem="6kH-ca-pQQ" firstAttribute="centerY" secondItem="z4S-HJ-nHG" secondAttribute="centerY" id="fCc-MB-VLV"/>
+                            <constraint firstItem="6kH-ca-pQQ" firstAttribute="centerX" secondItem="z4S-HJ-nHG" secondAttribute="centerX" id="q2x-FO-2u1"/>
+                            <constraint firstAttribute="trailing" secondItem="rad-4E-8rf" secondAttribute="trailing" constant="20" id="vUM-pA-KdF"/>
+                            <constraint firstItem="rad-4E-8rf" firstAttribute="top" secondItem="z4S-HJ-nHG" secondAttribute="top" constant="20" id="wRt-FM-Qf8"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="appNameField" destination="VZd-vg-JwV" id="umD-wK-9O6"/>
+                        <outlet property="imageView" destination="6kH-ca-pQQ" id="iHo-JK-oQ3"/>
+                        <outlet property="progressIndicator" destination="rad-4E-8rf" id="uLm-zt-Nhc"/>
+                    </connections>
+                </viewController>
+                <customObject id="Vfu-xe-CtH" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="646" y="655"/>
         </scene>
         <!--Pgy Settings Controller-->
         <scene sceneID="odz-Ib-jz5">
