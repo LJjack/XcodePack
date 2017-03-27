@@ -1,7 +1,10 @@
 # XcodePack
 
 使用XcodePack打包iOS工具生成ipa
-![](https://github.com/LJjack/XcodePack/edit/master/1.png)
-![](https://github.com/LJjack/XcodePack/edit/master/1.png)
-![](https://github.com/LJjack/XcodePack/edit/master/1.png)
-![](http://7xk67j.com1.z0.glb.clouddn.com/gift.png)
+![工程打开](https://github.com/LJjack/XcodePack/blob/master/1.png)
+
+![配置蒲公英界面](https://github.com/LJjack/XcodePack/blob/master/2.png)
+
+![运行中](https://github.com/LJjack/XcodePack/blob/master/3.png)
+
+![上传蒲公英后的结果](https://github.com/LJjack/XcodePack/blob/master/4.png)
