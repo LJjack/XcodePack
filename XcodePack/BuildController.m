@@ -59,7 +59,19 @@
     [oPanel beginSheetModalForWindow:[self.view window]
                    completionHandler:^(NSInteger returnCode) {
        if (returnCode == NSModalResponseOK) {
-           self.projectPath = oPanel.URLs.firstObject.path;
+           NSString *path = oPanel.URLs.firstObject.path;
+           self.projectPath = path;
+           self.textView.string = path;
+           self.dragView.hidden = YES;
+           if (![path hasSuffix:@".xcodeproj"] && ![path hasSuffix:@".xcworkspace"]) {
+               dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                   [NSAlert lj_alertWithMessage:@"警告" infoText:@"文件不是.xcodeproj或.xcworkspace"];
+                   self.projectPath = nil;
+                   self.textView.string = @"";
+                   self.dragView.hidden = NO;
+               });
+           }
+           
        }
     }];
 }

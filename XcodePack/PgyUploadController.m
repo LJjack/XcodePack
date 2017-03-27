@@ -35,7 +35,6 @@
     [self dismissController:nil];
 }
 
-
 - (void)uploadPgy:(NSString *)path {
     NSString *fileName = [path componentsSeparatedByString:@"/"].lastObject;
     if (!fileName.length) {
