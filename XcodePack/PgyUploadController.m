@@ -48,7 +48,6 @@
     
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] init];
     [[manager uploadTaskWithStreamedRequest:request progress:^(NSProgress * _Nonnull uploadProgress) {
-        NSLog(@"%f",uploadProgress.fractionCompleted);
         dispatch_async(dispatch_get_main_queue(), ^{
             self.progressIndicator.doubleValue = uploadProgress.fractionCompleted * 100;
         });
@@ -65,7 +64,6 @@
                 });
             }
         }
-        NSLog(@"%@  %@", responseObject, error);
     }] resume];
 }
 

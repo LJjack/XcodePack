@@ -88,7 +88,12 @@
                 [self.indicator stopAnimation:nil];
                 self.uploadPgyBtn.enabled = YES;
                 if (stauts != 0) {
-#warning TODO
+                    NSAlert *alert = [[NSAlert alloc] init];
+                    alert.messageText = @"警告";
+                    alert.informativeText = @"出错，可能是证书的问题！";
+                    [alert beginSheetModalForWindow:[NSApplication sharedApplication].keyWindow completionHandler:^(NSModalResponse returnCode) {
+                        
+                    }];
                 } else if (stauts == 0 && self.uploadPgyBtn.state) {
                     [self performSegueWithIdentifier:@"showUpload" sender:path];
                 }
