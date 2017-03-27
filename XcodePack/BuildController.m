@@ -7,13 +7,13 @@
 //
 
 #import "BuildController.h"
-#import "BDDragView.h"
-
+#import "PgySettingsController.h"
 #import "XcodePack-Swift.h"
-
 #import "AFNetworking.h"
+#import "BDDragView.h"
+#import "PgyConfig.h"
 
-@interface BuildController ()
+@interface BuildController ()<PgySettingsControllerDelegate>
 
 @property (unsafe_unretained) IBOutlet NSTextView *textView;
 @property (weak) IBOutlet BDDragView *dragView;
@@ -35,11 +35,20 @@
         weakSelf.textView.string = path;
         weakSelf.projectPath = path;
     };
+    
+    [self handleUploadPgyBtnState];
 }
 
 - (void)setRepresentedObject:(id)representedObject {
     [super setRepresentedObject:representedObject];
 }
+
+- (IBAction)clickUploadPgyBtn:(NSButton *)sender {
+    if (sender.state == 1) {
+        [self performSegueWithIdentifier:@"showPgySettings" sender:nil];
+    }
+}
+
 
 - (IBAction)clickAddBtn:(NSButton *)sender {
     NSOpenPanel *oPanel = [NSOpenPanel openPanel];
@@ -47,7 +56,6 @@
     [oPanel setCanChooseDirectories:YES];
     [oPanel setResolvesAliases:YES];
     [oPanel setAllowedFileTypes:@[@"xcodeproj",@"xcworkspace"]];
-    
     [oPanel beginSheetModalForWindow:[self.view window]
                    completionHandler:^(NSInteger returnCode) {
        if (returnCode == NSModalResponseOK) {
@@ -76,7 +84,6 @@
                 NSRange range = NSMakeRange(outputString.length, 0);
                 [self.textView scrollRangeToVisible:range];
             });
-            
         };
         pack.didFinish = ^(int32_t stauts, NSString *path) {
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -91,13 +98,25 @@
     });
 }
 
+#pragma mark - PgySettingsControllerDelegate
+
+- (void)pgySttingsControllerDidClosed:(PgySettingsController *)controller {
+    [self handleUploadPgyBtnState];
+}
+
 - (void)uploadPgy:(NSString *)path {
     NSString *fileName = [path componentsSeparatedByString:@"/"].lastObject;
     NSString *urlString = @"https://qiniu-storage.pgyer.com/apiv1/app/upload";
-    NSDictionary *parameters = @{@"uKey":@"c1d70843df29d3f5addd57af95a381ca",
-                                 @"_api_key":@"de68eda891fae6b185d92362f74f6159",
-                                 @"installType":@"2",
-                                 @"password":@"bj123456"};
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    parameters[@"uKey"] = [defaults objectForKey:kUserKey]?:@"";
+    parameters[@"_api_key"] = [defaults objectForKey:kApiKey]?:@"";
+    NSString *pwd = [defaults objectForKey:kPwdKey];
+    if (pwd.length) {
+        parameters[@"password"] = pwd;
+        parameters[@"installType"] = @"2";
+    }
+    parameters[@"updateDescription"] = [defaults objectForKey:kDestKey]?:@"";
     
     AFHTTPRequestSerializer *serializer = [AFHTTPRequestSerializer serializer];
     NSMutableURLRequest *request = [serializer multipartFormRequestWithMethod:@"POST" URLString:urlString parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
@@ -112,6 +131,21 @@
         NSLog(@"%@  %@", responseObject, error);
     }];
     [uploadTask resume];
+}
+
+- (void)handleUploadPgyBtnState {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *userKey = [defaults objectForKey:kUserKey];
+    self.uploadPgyBtn.state = userKey.length != 0?1:0;
+}
+
+#pragma mark - Nav
+
+- (void)prepareForSegue:(NSStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"showPgySettings"]) {
+        PgySettingsController * controller = [segue destinationController];
+        controller.delegate = self;
+    }
 }
 
 @end

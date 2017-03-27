@@ -761,7 +761,7 @@
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
                                         <connections>
-                                            <segue destination="9zK-v9-x8T" kind="sheet" id="xHa-jy-Zdl"/>
+                                            <action selector="clickUploadPgyBtn:" target="XfG-lQ-9wD" id="y4e-bF-sQ7"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -803,6 +803,7 @@
                         <outlet property="runBtn" destination="l2b-es-8Ka" id="LEV-FU-vhl"/>
                         <outlet property="textView" destination="Cu0-HA-UAE" id="bfc-Y2-Gim"/>
                         <outlet property="uploadPgyBtn" destination="jAd-oq-xHt" id="bNM-uH-2pW"/>
+                        <segue destination="9zK-v9-x8T" kind="sheet" identifier="showPgySettings" id="N8t-n1-BtC"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -880,20 +881,23 @@
                             </scrollView>
                             <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bap-kE-stC">
                                 <rect key="frame" x="10" y="136" width="91" height="26"/>
-                                <popUpButtonCell key="cell" type="push" title="公开" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="QAt-NR-j6c" id="EU3-GU-6Ym">
+                                <popUpButtonCell key="cell" type="push" title="公开" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="QAt-NR-j6c" id="EU3-GU-6Ym">
                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="menu"/>
                                     <menu key="menu" id="tyz-Za-RTO">
                                         <items>
-                                            <menuItem title="公开" id="QAt-NR-j6c"/>
+                                            <menuItem title="公开" state="on" id="QAt-NR-j6c"/>
                                             <menuItem title="密码安装" id="c7A-he-Z6y"/>
                                         </items>
                                     </menu>
                                 </popUpButtonCell>
+                                <connections>
+                                    <action selector="selectedBtn:" target="9zK-v9-x8T" id="puB-8d-tfC"/>
+                                </connections>
                             </popUpButton>
                             <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5vC-Eo-a6L">
                                 <rect key="frame" x="111" y="138" width="319" height="22"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="请输入密码" drawsBackground="YES" id="kjw-CU-bxJ">
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="请输入密码" drawsBackground="YES" id="kjw-CU-bxJ">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -932,16 +936,44 @@
                                     <constraint firstItem="JRZ-Yg-uUF" firstAttribute="top" secondItem="TRS-kw-Y9M" secondAttribute="top" id="y78-YK-2ff"/>
                                 </constraints>
                             </customView>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Sj4-oF-sDO">
-                                <rect key="frame" x="185" y="11" width="80" height="19"/>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="r10-du-F2L">
+                                <rect key="frame" x="128" y="0.0" width="194" height="45"/>
+                                <subviews>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Sj4-oF-sDO">
+                                        <rect key="frame" x="0.0" y="13" width="80" height="19"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="80" id="cMy-Xo-Afk"/>
+                                        </constraints>
+                                        <buttonCell key="cell" type="roundRect" title="确定" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fPK-Ys-bSr">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="cellTitle"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="sureBtn:" target="9zK-v9-x8T" id="Eeh-IL-lJt"/>
+                                        </connections>
+                                    </button>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RWS-b9-3jH">
+                                        <rect key="frame" x="114" y="13" width="80" height="19"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="80" id="pnp-Mi-cVM"/>
+                                        </constraints>
+                                        <buttonCell key="cell" type="roundRect" title="关闭" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="77h-6c-etU">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="cellTitle"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="clickCloseBtn:" target="9zK-v9-x8T" id="g0b-sJ-787"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="Lg8-YP-RO6"/>
+                                    <constraint firstItem="Sj4-oF-sDO" firstAttribute="leading" secondItem="r10-du-F2L" secondAttribute="leading" id="IkV-T1-pqo"/>
+                                    <constraint firstItem="Sj4-oF-sDO" firstAttribute="centerY" secondItem="r10-du-F2L" secondAttribute="centerY" id="Vln-kP-bXi"/>
+                                    <constraint firstAttribute="width" constant="194" id="fvB-KH-iOu"/>
+                                    <constraint firstAttribute="trailing" secondItem="RWS-b9-3jH" secondAttribute="trailing" id="neh-xM-obc"/>
+                                    <constraint firstItem="RWS-b9-3jH" firstAttribute="centerY" secondItem="r10-du-F2L" secondAttribute="centerY" id="ua4-3w-Inc"/>
                                 </constraints>
-                                <buttonCell key="cell" type="roundRect" title="确定" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fPK-Ys-bSr">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="cellTitle"/>
-                                </buttonCell>
-                            </button>
+                            </customView>
                         </subviews>
                         <constraints>
                             <constraint firstItem="TRS-kw-Y9M" firstAttribute="centerX" secondItem="fcX-kO-IlJ" secondAttribute="centerX" id="0Ws-Cc-er4"/>
@@ -955,12 +987,13 @@
                             <constraint firstAttribute="trailing" secondItem="S8I-2s-yyn" secondAttribute="trailing" constant="20" id="Gwu-uT-OgE"/>
                             <constraint firstItem="Jii-ms-xrR" firstAttribute="leading" secondItem="fcX-kO-IlJ" secondAttribute="leading" constant="32" id="Kon-TD-tmJ"/>
                             <constraint firstAttribute="trailing" secondItem="5vC-Eo-a6L" secondAttribute="trailing" constant="20" id="Nkc-oV-syz"/>
-                            <constraint firstItem="Sj4-oF-sDO" firstAttribute="top" secondItem="cXW-L8-29u" secondAttribute="bottom" constant="15" id="RDP-Rw-tT7"/>
+                            <constraint firstAttribute="bottom" secondItem="r10-du-F2L" secondAttribute="bottom" id="QqP-RZ-cOF"/>
+                            <constraint firstItem="r10-du-F2L" firstAttribute="centerX" secondItem="fcX-kO-IlJ" secondAttribute="centerX" id="TM9-wK-iLV"/>
                             <constraint firstItem="Jii-ms-xrR" firstAttribute="top" secondItem="bap-kE-stC" secondAttribute="bottom" constant="44" id="VNP-Ef-XnD"/>
-                            <constraint firstItem="Sj4-oF-sDO" firstAttribute="centerX" secondItem="fcX-kO-IlJ" secondAttribute="centerX" id="XoX-mP-aaj"/>
                             <constraint firstItem="8rp-8e-cVr" firstAttribute="top" secondItem="sD6-FO-AD5" secondAttribute="bottom" constant="12" id="Zbp-kO-2le"/>
                             <constraint firstItem="WPD-Iw-0ef" firstAttribute="leading" secondItem="sD6-FO-AD5" secondAttribute="trailing" constant="25" id="ac4-iO-9dK"/>
                             <constraint firstItem="cXW-L8-29u" firstAttribute="leading" secondItem="Jii-ms-xrR" secondAttribute="trailing" constant="27" id="fcD-rf-7I1"/>
+                            <constraint firstItem="r10-du-F2L" firstAttribute="top" secondItem="cXW-L8-29u" secondAttribute="bottom" id="hBe-Z5-IZS"/>
                             <constraint firstAttribute="trailing" secondItem="cXW-L8-29u" secondAttribute="trailing" constant="20" id="lks-yI-30O"/>
                             <constraint firstItem="sD6-FO-AD5" firstAttribute="leading" secondItem="fcX-kO-IlJ" secondAttribute="leading" constant="31" id="maj-Yf-XcZ"/>
                             <constraint firstItem="bap-kE-stC" firstAttribute="leading" secondItem="fcX-kO-IlJ" secondAttribute="leading" constant="12" id="nBl-TV-sNc"/>
@@ -970,6 +1003,13 @@
                             <constraint firstItem="bap-kE-stC" firstAttribute="top" secondItem="8rp-8e-cVr" secondAttribute="bottom" constant="16" id="wiQ-Df-VLl"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="apiKeyField" destination="S8I-2s-yyn" id="rS1-6F-8g0"/>
+                        <outlet property="destTextView" destination="zYs-Lf-oVu" id="KND-QS-9uw"/>
+                        <outlet property="pwdField" destination="5vC-Eo-a6L" id="G8X-Kh-rrn"/>
+                        <outlet property="selectedBtn" destination="bap-kE-stC" id="AyL-fg-hTr"/>
+                        <outlet property="userKeyField" destination="WPD-Iw-0ef" id="LqK-as-GeE"/>
+                    </connections>
                 </viewController>
                 <customObject id="zVH-Ju-KpE" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>

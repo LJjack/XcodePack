@@ -8,6 +8,17 @@
 
 #import <Cocoa/Cocoa.h>
 
+@class PgySettingsController;
+
+@protocol PgySettingsControllerDelegate <NSObject>
+
+@optional
+- (void)pgySttingsControllerDidClosed:(PgySettingsController *)controller;
+
+@end
+
 @interface PgySettingsController : NSViewController
+
+@property (nonatomic, weak) id<PgySettingsControllerDelegate> delegate;
 
 @end
