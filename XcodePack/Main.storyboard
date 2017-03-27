@@ -698,14 +698,6 @@
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <size key="minSize" width="463" height="228"/>
                                             <size key="maxSize" width="480" height="10000000"/>
-                                            <attributedString key="textStorage">
-                                                <fragment content="把工程托在上方区域">
-                                                    <attributes>
-                                                        <font key="NSFont" size="11" name=".PingFangSC-Regular"/>
-                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                    </attributes>
-                                                </fragment>
-                                            </attributedString>
                                             <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                         </textView>
                                     </subviews>
@@ -823,30 +815,46 @@
                                 <rect key="frame" x="20" y="231" width="440" height="20"/>
                             </progressIndicator>
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6kH-ca-pQQ">
-                                <rect key="frame" x="165" y="60" width="150" height="150"/>
+                                <rect key="frame" x="180" y="75" width="120" height="120"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="dVc-r8-MqU"/>
-                                    <constraint firstAttribute="height" constant="150" id="iuO-xY-XFE"/>
+                                    <constraint firstAttribute="width" constant="120" id="dVc-r8-MqU"/>
+                                    <constraint firstAttribute="height" constant="120" id="iuO-xY-XFE"/>
                                 </constraints>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="cuK-Qf-fhB"/>
                             </imageView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VZd-vg-JwV">
-                                <rect key="frame" x="238" y="31" width="4" height="17"/>
+                                <rect key="frame" x="238" y="46" width="4" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" id="SuA-sZ-yUj">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qdg-R7-kaQ">
+                                <rect key="frame" x="380" y="11" width="80" height="19"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="6yY-Wq-cjH"/>
+                                </constraints>
+                                <buttonCell key="cell" type="roundRect" title="关闭" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="U1A-TR-dvE">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="cellTitle"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="clickClosedBtn:" target="5mq-gm-Op3" id="OSa-KZ-XS0"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="VZd-vg-JwV" firstAttribute="top" secondItem="6kH-ca-pQQ" secondAttribute="bottom" constant="12" id="1f7-YB-To3"/>
                             <constraint firstItem="rad-4E-8rf" firstAttribute="leading" secondItem="z4S-HJ-nHG" secondAttribute="leading" constant="20" id="Mq2-U6-sk5"/>
+                            <constraint firstAttribute="bottom" secondItem="qdg-R7-kaQ" secondAttribute="bottom" constant="12" id="Ppe-pM-Ugp"/>
+                            <constraint firstAttribute="trailing" secondItem="qdg-R7-kaQ" secondAttribute="trailing" constant="20" id="RWc-6x-lJV"/>
                             <constraint firstItem="VZd-vg-JwV" firstAttribute="centerX" secondItem="z4S-HJ-nHG" secondAttribute="centerX" id="Yg3-dq-uus"/>
                             <constraint firstItem="6kH-ca-pQQ" firstAttribute="centerY" secondItem="z4S-HJ-nHG" secondAttribute="centerY" id="fCc-MB-VLV"/>
                             <constraint firstItem="6kH-ca-pQQ" firstAttribute="centerX" secondItem="z4S-HJ-nHG" secondAttribute="centerX" id="q2x-FO-2u1"/>
                             <constraint firstAttribute="trailing" secondItem="rad-4E-8rf" secondAttribute="trailing" constant="20" id="vUM-pA-KdF"/>
                             <constraint firstItem="rad-4E-8rf" firstAttribute="top" secondItem="z4S-HJ-nHG" secondAttribute="top" constant="20" id="wRt-FM-Qf8"/>
+                            <constraint firstItem="VZd-vg-JwV" firstAttribute="top" secondItem="6kH-ca-pQQ" secondAttribute="bottom" constant="12" id="yCj-ud-iGD"/>
                         </constraints>
                     </view>
                     <connections>

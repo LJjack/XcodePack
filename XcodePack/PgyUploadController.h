@@ -8,8 +8,19 @@
 
 #import <Cocoa/Cocoa.h>
 
+@class PgyUploadController;
+
+@protocol PgyUploadControllerDelegate <NSObject>
+
+@optional
+- (void)pgyUploadControllerDidClosed:(PgyUploadController *)controller;
+
+@end
+
+
 @interface PgyUploadController : NSViewController
 
 @property (nonatomic, copy) NSString *path;
+@property (nonatomic, weak) id<PgyUploadControllerDelegate> delegate;
 
 @end

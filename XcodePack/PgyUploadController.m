@@ -7,6 +7,7 @@
 //
 
 #import "PgyUploadController.h"
+#import "NSAlert+LJAdd.h"
 #import "NSImage+LJQRCode.h"
 #import "AFNetworking.h"
 #import "PgyConfig.h"
@@ -27,8 +28,20 @@
     }
 }
 
+- (IBAction)clickClosedBtn:(NSButton *)sender {
+    if ([self.delegate respondsToSelector:@selector(pgyUploadControllerDidClosed:)]) {
+        [self.delegate pgyUploadControllerDidClosed:self];
+    }
+    [self dismissController:nil];
+}
+
+
 - (void)uploadPgy:(NSString *)path {
     NSString *fileName = [path componentsSeparatedByString:@"/"].lastObject;
+    if (!fileName.length) {
+        [NSAlert lj_alertWithMessage:@"警告" infoText:@"上传包路径出错"];
+        return;
+    }
     NSString *urlString = @"https://qiniu-storage.pgyer.com/apiv1/app/upload";
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];

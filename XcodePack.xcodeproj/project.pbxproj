@@ -26,6 +26,7 @@
 		83D9A6491E889EBB00DAF05C /* PgyConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D9A6481E889EBB00DAF05C /* PgyConfig.m */; };
 		83D9A64F1E88AA9D00DAF05C /* NSImage+LJQRCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D9A64E1E88AA9D00DAF05C /* NSImage+LJQRCode.m */; };
 		83D9A6521E88AF4E00DAF05C /* PgyUploadController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D9A6511E88AF4E00DAF05C /* PgyUploadController.m */; };
+		83D9A6581E88C36300DAF05C /* NSAlert+LJAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D9A6571E88C36300DAF05C /* NSAlert+LJAdd.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +66,8 @@
 		83D9A64E1E88AA9D00DAF05C /* NSImage+LJQRCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSImage+LJQRCode.m"; sourceTree = "<group>"; };
 		83D9A6501E88AF4E00DAF05C /* PgyUploadController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PgyUploadController.h; sourceTree = "<group>"; };
 		83D9A6511E88AF4E00DAF05C /* PgyUploadController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PgyUploadController.m; sourceTree = "<group>"; };
+		83D9A6561E88C36300DAF05C /* NSAlert+LJAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAlert+LJAdd.h"; sourceTree = "<group>"; };
+		83D9A6571E88C36300DAF05C /* NSAlert+LJAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAlert+LJAdd.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +115,8 @@
 				83D9A6481E889EBB00DAF05C /* PgyConfig.m */,
 				83D9A64D1E88AA9D00DAF05C /* NSImage+LJQRCode.h */,
 				83D9A64E1E88AA9D00DAF05C /* NSImage+LJQRCode.m */,
+				83D9A6561E88C36300DAF05C /* NSAlert+LJAdd.h */,
+				83D9A6571E88C36300DAF05C /* NSAlert+LJAdd.m */,
 				835060641E4DA4D100880DBD /* Main.storyboard */,
 				835060661E4DA58A00880DBD /* Assets.xcassets */,
 				8350605B1E4DA4C800880DBD /* TerminalCmd.swift */,
@@ -228,6 +233,7 @@
 				83D9A64F1E88AA9D00DAF05C /* NSImage+LJQRCode.m in Sources */,
 				8350605E1E4DA4C800880DBD /* BuildController.m in Sources */,
 				83717B2A1E8123C300624074 /* AFSecurityPolicy.m in Sources */,
+				83D9A6581E88C36300DAF05C /* NSAlert+LJAdd.m in Sources */,
 				83D9A6521E88AF4E00DAF05C /* PgyUploadController.m in Sources */,
 				835060621E4DA4C800880DBD /* TerminalCmd.swift in Sources */,
 				835060631E4DA4C800880DBD /* Utils.swift in Sources */,

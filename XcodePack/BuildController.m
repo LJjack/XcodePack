@@ -10,10 +10,11 @@
 #import "PgySettingsController.h"
 #import "PgyUploadController.h"
 #import "XcodePack-Swift.h"
+#import "NSAlert+LJAdd.h"
 #import "BDDragView.h"
 #import "PgyConfig.h"
 
-@interface BuildController ()<PgySettingsControllerDelegate>
+@interface BuildController ()<PgySettingsControllerDelegate, PgyUploadControllerDelegate>
 
 @property (unsafe_unretained) IBOutlet NSTextView *textView;
 @property (weak) IBOutlet BDDragView *dragView;
@@ -36,6 +37,7 @@
     };
     
     [self handleUploadPgyBtnState];
+    
 }
 
 - (void)setRepresentedObject:(id)representedObject {
@@ -88,12 +90,7 @@
                 [self.indicator stopAnimation:nil];
                 self.uploadPgyBtn.enabled = YES;
                 if (stauts != 0) {
-                    NSAlert *alert = [[NSAlert alloc] init];
-                    alert.messageText = @"警告";
-                    alert.informativeText = @"出错，可能是证书的问题！";
-                    [alert beginSheetModalForWindow:[NSApplication sharedApplication].keyWindow completionHandler:^(NSModalResponse returnCode) {
-                        
-                    }];
+                    [NSAlert lj_alertWithMessage:@"警告" infoText:@"出错，可能是证书的问题！"];
                 } else if (stauts == 0 && self.uploadPgyBtn.state) {
                     [self performSegueWithIdentifier:@"showUpload" sender:path];
                 }
@@ -107,6 +104,13 @@
 
 - (void)pgySttingsControllerDidClosed:(PgySettingsController *)controller {
     [self handleUploadPgyBtnState];
+}
+
+#pragma mark - PgyUploadControllerDelegate
+
+- (void)pgyUploadControllerDidClosed:(PgyUploadController *)controller {
+    self.dragView.hidden = NO;
+    self.textView.string = @"";
 }
 
 - (void)handleUploadPgyBtnState {
@@ -123,6 +127,7 @@
         controller.delegate = self;
     } else if ([segue.identifier isEqualToString:@"showUpload"]) {
         PgyUploadController *controller = [segue destinationController];
+        controller.delegate = self;
         controller.path = sender;
     }
 }

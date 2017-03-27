@@ -7,6 +7,7 @@
 //
 
 #import "BDDragView.h"
+#import "NSAlert+LJAdd.h"
 
 @implementation BDDragView {
     BOOL highlight; //highlight the drop zone
@@ -94,12 +95,7 @@
         
         NSString *fileName = filePaths.firstObject;
         if (![fileName hasSuffix:@".xcodeproj"] && ![fileName hasSuffix:@".xcworkspace"]) {
-            NSAlert *alert = [[NSAlert alloc] init];
-            alert.messageText = @"警告";
-            alert.informativeText = @"文件不是.xcodeproj或.xcworkspace";
-            [alert beginSheetModalForWindow:[NSApplication sharedApplication].keyWindow completionHandler:^(NSModalResponse returnCode) {
-                
-            }];
+            [NSAlert lj_alertWithMessage:@"警告" infoText:@"文件不是.xcodeproj或.xcworkspace"];
             return YES;
         }
         self.hidden = YES;
@@ -114,6 +110,5 @@
 - (BOOL)acceptsFirstMouse:(NSEvent *)event {
     return YES; //so source doesn't have to be the active window
 }
-
 
 @end
