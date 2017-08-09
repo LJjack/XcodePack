@@ -10,11 +10,17 @@
 
 2.可以配置蒲公英信息。
 
+
 ![配置蒲公英界面](https://github.com/LJjack/XcodePack/blob/master/2.png)
+
 
 3.运行中。
 
+
 ![运行中](https://github.com/LJjack/XcodePack/blob/master/3.png)
+
+
 4.完成。
+
 
 ![上传蒲公英后的结果](https://github.com/LJjack/XcodePack/blob/master/4.png)
