@@ -90,9 +90,10 @@ extension AutoPack {
         let format = DateFormatter()
         format.dateFormat = "yyyy-MM-dd_HH-mm-ss"
         let dataString = format.string(from: date)
-        return filePath.components(separatedBy: "/")[1...2].reduce("/") { (res, node) -> String in
+        let path = filePath.components(separatedBy: "/")[1...2].reduce("/") { (res, node) -> String in
             return res +  node + "/"
-        } + kOutputPath + "/" + projectName + dataString
+        }
+        return path + kOutputPath + "/" + projectName + dataString
     }
     
     fileprivate func buildArchivePath(filePath:String,name:String) -> String {

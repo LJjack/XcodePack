@@ -123,6 +123,7 @@
 - (void)pgyUploadControllerDidClosed:(PgyUploadController *)controller {
     self.dragView.hidden = NO;
     self.textView.string = @"";
+    self.runBtn.enabled = YES;
 }
 
 - (void)handleUploadPgyBtnState {
