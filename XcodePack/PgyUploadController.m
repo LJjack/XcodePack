@@ -13,6 +13,7 @@
 #import "PgyConfig.h"
 
 @interface PgyUploadController ()
+
 @property (weak) IBOutlet NSProgressIndicator *progressIndicator;
 @property (weak) IBOutlet NSImageView *imageView;
 @property (weak) IBOutlet NSTextField *appNameField;
@@ -46,11 +47,17 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     parameters[@"uKey"] = [defaults objectForKey:kUserKey]?:@"";
     parameters[@"_api_key"] = [defaults objectForKey:kApiKey]?:@"";
-    NSString *pwd = [defaults objectForKey:kPwdKey];
-    if (pwd.length) {
-        parameters[@"password"] = pwd;
-        parameters[@"installType"] = @"2";
+    
+    
+    NSInteger num = [defaults integerForKey:kSelectedKey];
+    if (num == 2) {
+        NSString *pwd = [defaults objectForKey:kPwdKey];
+        if (pwd.length) {
+            parameters[@"password"] = pwd;
+            parameters[@"installType"] = @"2";
+        }
     }
+    
     parameters[@"updateDescription"] = [defaults objectForKey:kDestKey]?:@"";
     
     AFHTTPRequestSerializer *serializer = [AFHTTPRequestSerializer serializer];

@@ -76,7 +76,7 @@
                 </windowController>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="250"/>
+            <point key="canvasLocation" x="75" y="335"/>
         </scene>
         <!--Build Controller-->
         <scene sceneID="hIz-AP-VOD">
@@ -201,7 +201,7 @@
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="655"/>
+            <point key="canvasLocation" x="75" y="751"/>
         </scene>
         <!--Pgy Upload Controller-->
         <scene sceneID="HeY-hl-vjz">
@@ -265,7 +265,7 @@
                 </viewController>
                 <customObject id="Vfu-xe-CtH" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="646" y="655"/>
+            <point key="canvasLocation" x="639" y="751"/>
         </scene>
         <!--Pgy Settings Controller-->
         <scene sceneID="odz-Ib-jz5">
@@ -470,7 +470,7 @@
                 </viewController>
                 <customObject id="zVH-Ju-KpE" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="1110"/>
+            <point key="canvasLocation" x="75" y="1160"/>
         </scene>
     </scenes>
     <resources>
